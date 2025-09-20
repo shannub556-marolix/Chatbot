@@ -1,0 +1,32 @@
+# ---- Global ----
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# ---- Python / Backend ----
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/.venv/
+backend/venv/
+backend/env/
+backend/.env
+
+# If using FastAPI/Django/Flask, ignore migrations cache
+backend/**/migrations/__pycache__/
+
+# ---- Node.js / Frontend ----
+frontend/node_modules/
+frontend/.env
+frontend/.next/
+frontend/dist/
+frontend/build/
+frontend/.turbo/
+frontend/.parcel-cache/
+
+# ---- General Environment Files ----
+.env
+*.env

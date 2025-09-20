@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Customer Support Chatbot Design System - Professional & Modern */
+
+@layer base {
+  :root {
+    /* Base colors - Pure white like ChatGPT */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary - Clean Green like ChatGPT */
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 142 70% 40%;
+
+    /* Secondary - Very light gray */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    /* Muted system */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Accent - Same as primary */
+    --accent: 142 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Chat-specific colors - ChatGPT style */
+    --chat-user: 142 70% 45%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-bot: 0 0% 96%;
+    --chat-bot-foreground: 0 0% 9%;
+    --chat-background: 0 0% 100%;
+
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* UI elements */
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 142 70% 45%;
+  }
+
+  .dark {
+    /* Dark mode colors - ChatGPT dark style */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 142 70% 40%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 80%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 142 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Dark chat colors */
+    --chat-user: 142 70% 45%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-bot: 0 0% 10%;
+    --chat-bot-foreground: 0 0% 98%;
+    --chat-background: 0 0% 7%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 142 70% 45%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 80%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Chat animations */
+  .typing-animation {
+    animation: typing 1.5s infinite;
+  }
+
+  @keyframes typing {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Upload drag and drop */
+  .upload-dropzone {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .upload-dropzone.drag-over {
+    @apply bg-primary/5 border-primary border-dashed;
+  }
+
+  /* Message slide-in animation */
+  .message-slide-in {
+    animation: slideInUp 0.3s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "endpoints": [
+    {
+      "name": "Upload Document",
+      "endpoint": "/upload",
+      "method": "POST",
+      "description": "Upload a document for processing",
+      "headers": {
+        "Authorization": "Bearer your_admin_jwt_token_here"
+      },
+      "request": {
+        "type": "multipart/form-data",
+        "content": {
+          "file": "[Binary file content]"
+        }
+      },
+      "response": {
+        "status": 201,
+        "content": {
+          "doc_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+          "filename": "example_document.pdf",
+          "total_chunks": 15,
+          "message": "Document processed successfully"
+        }
+      }
+    },
+    {
+      "name": "Chat",
+      "endpoint": "/chat",
+      "method": "POST",
+      "description": "Chat with the bot",
+      "request": {
+        "content_type": "application/json",
+        "content": {
+          "question": "Tell me about Shanmukha",
+          "session_id": "user123-session456"
+        }
+      },
+      "response": {
+        "status": 200,
+        "content": {
+          "answer": "Based on the information in your documents, Shanmukha is a software engineer with 5 years of experience in full-stack development. He specializes in Python, React, and cloud technologies. He has worked on several projects including a recommendation system and an e-commerce platform.",
+          "sources": [
+            {
+              "filename": "resume.pdf",
+              "page": 2
+            },
+            {
+              "filename": "portfolio.pdf",
+              "page": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Chat History",
+      "endpoint": "/history/{session_id}",
+      "method": "GET",
+      "description": "Get chat history for a session",
+      "request": {
+        "path_params": {
+          "session_id": "user123-session456"
+        }
+      },
+      "response": {
+        "status": 200,
+        "content": {
+          "history": [
+            {
+              "role": "user",
+              "message": "Tell me about Shanmukha",
+              "timestamp": "2023-06-15T14:30:45.123456"
+            },
+            {
+              "role": "assistant",
+              "message": "Based on the information in your documents, Shanmukha is a software engineer with 5 years of experience in full-stack development. He specializes in Python, React, and cloud technologies. He has worked on several projects including a recommendation system and an e-commerce platform.",
+              "timestamp": "2023-06-15T14:30:48.654321"
+            },
+            {
+              "role": "user",
+              "message": "What projects has he worked on?",
+              "timestamp": "2023-06-15T14:31:15.789012"
+            },
+            {
+              "role": "assistant",
+              "message": "According to your documents, Shanmukha has worked on several projects including: 1) A recommendation system using collaborative filtering, 2) An e-commerce platform with React and Node.js, 3) A cloud-based data pipeline using AWS services, and 4) A machine learning model for sentiment analysis.",
+              "timestamp": "2023-06-15T14:31:18.345678"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Submit Feedback",
+      "endpoint": "/feedback",
+      "method": "POST",
+      "description": "Submit feedback for a chat interaction",
+      "request": {
+        "content_type": "application/json",
+        "content": {
+          "session_id": "user123-session456",
+          "question": "Tell me about Shanmukha",
+          "answer": "Based on the information in your documents, Shanmukha is a software engineer with 5 years of experience in full-stack development...",
+          "rating": 5,
+          "comments": "Very accurate and helpful response!"
+        }
+      },
+      "response": {
+        "status": 200,
+        "content": {
+          "message": "Feedback submitted successfully",
+          "feedback_id": "5f8d3a9b-6c1d-4e5f-8a7b-9c0d1e2f3a4b"
+        }
+      }
+    },
+    {
+      "name": "Health Check",
+      "endpoint": "/health",
+      "method": "GET",
+      "description": "Check the health of the service",
+      "response": {
+        "status": 200,
+        "content": {
+          "status": "healthy",
+          "timestamp": "2023-06-15T15:00:00.123456",
+          "services": {
+            "mongodb": "healthy",
+            "pinecone": "healthy",
+            "gemini": "healthy"
+          }
+        }
+      }
+    }
+  ]
+}
